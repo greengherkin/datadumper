@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
 
-namespace MQTT.RelayClient
+namespace MQTT.Client
 {
     class Program
     {

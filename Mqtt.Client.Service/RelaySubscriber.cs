@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using uPLibrary.Networking.M2Mqtt.Messages;
 
-namespace Mqtt.RelayClient.Service
+namespace Mqtt.Client.Service
 {
     public class RelaySubscriber : SubscriberBase
     {

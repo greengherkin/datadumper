@@ -3,7 +3,7 @@ using System.Linq;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
 
-namespace Mqtt.RelayClient.Service
+namespace Mqtt.Client.Service
 {
     public abstract class SubscriberBase
     {

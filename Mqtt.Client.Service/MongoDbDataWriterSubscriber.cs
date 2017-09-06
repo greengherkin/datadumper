@@ -5,7 +5,7 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using uPLibrary.Networking.M2Mqtt.Messages;
 
-namespace Mqtt.RelayClient.Service
+namespace Mqtt.Client.Service
 {
     public class MongoDbDataWriterSubscriber : SubscriberBase
     {
@@ -31,7 +31,7 @@ namespace Mqtt.RelayClient.Service
         protected override void MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
             IMongoClient client = new MongoClient();
-            IMongoDatabase database = client.GetDatabase("test");
+            IMongoDatabase database = client.GetDatabase(DatabaseName);
 
             var payload = Encoding.Default.GetString(e.Message);
             var document = new BsonDocument

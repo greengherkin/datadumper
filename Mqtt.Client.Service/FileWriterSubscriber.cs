@@ -4,7 +4,7 @@ using System.Text;
 using Newtonsoft.Json;
 using uPLibrary.Networking.M2Mqtt.Messages;
 
-namespace Mqtt.RelayClient.Service
+namespace Mqtt.Client.Service
 {
     public class FileWriterSubscriber : SubscriberBase
     {
