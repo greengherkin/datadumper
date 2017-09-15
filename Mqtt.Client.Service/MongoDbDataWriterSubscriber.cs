@@ -30,18 +30,25 @@ namespace Mqtt.Client.Service
 
         protected override void MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
-            IMongoClient client = new MongoClient();
-            IMongoDatabase database = client.GetDatabase(DatabaseName);
+            try
+            {
+                IMongoClient client = new MongoClient();
+                IMongoDatabase database = client.GetDatabase(DatabaseName);
 
-            var payload = Encoding.Default.GetString(e.Message);
-            var document = new BsonDocument
+                var payload = Encoding.Default.GetString(e.Message);
+                var document = new BsonDocument
                 {
                     { "DateTime", DateTime.Now },
                     { "Topic", e.Topic },
                     { "Payload", BsonDocument.Parse(payload) }
                 };
-            var collection = database.GetCollection<BsonDocument>(Collection);
-            collection.InsertOne(document);
+                var collection = database.GetCollection<BsonDocument>(Collection);
+                collection.InsertOne(document);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }

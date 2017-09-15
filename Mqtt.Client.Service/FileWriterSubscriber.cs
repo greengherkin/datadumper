@@ -22,7 +22,6 @@ namespace Mqtt.Client.Service
         protected override void MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
             var message = Encoding.Default.GetString(e.Message);
-            Console.WriteLine(message);
             var path = Path.Combine(DataFilePath, $"{Topic.Replace("/", "-")}_" + DateTime.Now.ToString("yyyyMMdd") + ".dat");
             var payload = JsonConvert.DeserializeObject(message);
             var data = new { DateTime = DateTime.Now, Topic = e.Topic, Payload = payload };

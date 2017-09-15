@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleSubscriber.cs" />
     <Compile Include="FileWriterSubscriber.cs" />
     <Compile Include="MongoDbDataWriterSubscriber.cs" />
     <Compile Include="RelaySubscriber.cs" />
