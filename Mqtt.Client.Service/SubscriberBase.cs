@@ -33,7 +33,7 @@ namespace Mqtt.Client.Service
         public void Subscribe()
         {
             // create client instance 
-            MqttClient client = new MqttClient(BrokerHostName);
+            var client = new MqttClient(BrokerHostName);
 
             // register to message received 
             client.MqttMsgPublishReceived += MqttMsgPublishReceived;
@@ -41,8 +41,15 @@ namespace Mqtt.Client.Service
             client.Connect(Guid.NewGuid().ToString());
 
             client.Subscribe(new[] { Topic }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
+
+            SubscribeComplete();
         }
 
         protected abstract void MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e);
+
+        protected virtual void SubscribeComplete()
+        {
+
+        }
     }
 }
